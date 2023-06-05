@@ -6,7 +6,7 @@ const useFilms = (initialPage = 1) => {
 
   const fetchFilms = useCallback(async (pageNumber) => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?apikey=b7e6df52&s=movie&plot=full&page=${pageNumber}`);
+      const response = await fetch(`https://www.omdbapi.com/?apikey=b7e6df52&s=movie&plot=full&page=${pageNumber}`);
       const data = await response.json();
       if (data.Response === 'True') {
         setFilms([...data.Search]);
