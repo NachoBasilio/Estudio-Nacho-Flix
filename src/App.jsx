@@ -1,7 +1,15 @@
+import Films from "./Components/Films"
+
+
+
+
 function App() {
+  
+
   return (
     <>
-    <h1>Holaa</h1>
+    <header>NachoFlix</header>
+    <Films/>
     </>
   )
 }
