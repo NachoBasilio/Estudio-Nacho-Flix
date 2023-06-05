@@ -1,4 +1,5 @@
 import Films from "./Components/Films"
+import Header from "./Components/Header"
 
 
 
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-    <header>NachoFlix</header>
+    <Header>NachoFlix</Header>
     <Films/>
     </>
   )

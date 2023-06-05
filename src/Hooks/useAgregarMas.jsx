@@ -1,17 +1,28 @@
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import Film from '../Components/Film';
+
 export default function useAgregarMas(films, loadMoreFilms, nodoAAgregar) {
+  const [peliculas, setPeliculas] = useState([]);
 
   const agregarMas = async () => {
     await loadMoreFilms();
     const arrayPelis = await films;
 
-    arrayPelis.forEach((peli) => {
-      const nodo = document.createElement('div');
-      nodo.innerHTML = `<h2>${peli.Title}</h2><img src="${peli.Poster}"/>`;
-      nodoAAgregar.appendChild(nodo);
-    });
+    const nuevosPeliculas = arrayPelis.map((peli) => (
+      <Film key={peli.id} title={peli.Title} poster={peli.Poster} />
+    ));
 
-    loadMoreFilms();
+    setPeliculas([...nuevosPeliculas]);
   };
+
+  useEffect(() => {
+    peliculas.forEach((pelicula) => {
+      const div = document.createElement('div');
+      ReactDOM.render(pelicula, div);
+      nodoAAgregar.appendChild(div);
+    });
+  }, [peliculas, nodoAAgregar]);
 
   return agregarMas;
 }
