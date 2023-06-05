@@ -17,7 +17,7 @@ export default function Films() {
         threshold: 0.5,
       };
   
-      const callback = (entries, observer) => {
+      const callback = (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             funcionAgregadora();
